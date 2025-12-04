@@ -98,16 +98,19 @@ body {
     }
 }
 
-/* Animated Sun Logo */
-.sun-logo {
-    width: 200px;
-    height: 200px;
-    margin: 0 auto 20px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: float 4s infinite ease-in-out;
+/* Logo Image */
+.logo-image {
+    max-width: 350px;
+    width: 90%;
+    height: auto;
+    animation: float 4s infinite ease-in-out, glow 3s infinite ease-in-out;
+    filter: drop-shadow(0 0 30px rgba(255, 123, 0, 0.4));
+    transition: transform 0.3s ease;
+}
+
+.logo-image:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 50px rgba(255, 123, 0, 0.6));
 }
 
 @keyframes float {
@@ -122,292 +125,16 @@ body {
     }
 }
 
-.sun-core {
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, #ff9500, #ff6b00);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    z-index: 10;
-    box-shadow: 0 0 40px rgba(255, 123, 0, 0.6);
-    animation: pulse 2s infinite ease-in-out;
-}
-
-@keyframes pulse {
+@keyframes glow {
 
     0%,
     100% {
-        box-shadow: 0 0 40px rgba(255, 123, 0, 0.6);
+        filter: drop-shadow(0 0 30px rgba(255, 123, 0, 0.4));
     }
 
     50% {
-        box-shadow: 0 0 60px rgba(255, 123, 0, 0.9), 0 0 80px rgba(255, 235, 59, 0.4);
+        filter: drop-shadow(0 0 50px rgba(255, 123, 0, 0.7)) drop-shadow(0 0 80px rgba(255, 235, 59, 0.3));
     }
-}
-
-.sun-face {
-    font-size: 2.5rem;
-    animation: wiggle 3s infinite ease-in-out;
-}
-
-@keyframes wiggle {
-
-    0%,
-    100% {
-        transform: rotate(-3deg);
-    }
-
-    50% {
-        transform: rotate(3deg);
-    }
-}
-
-/* Sun Rays */
-.sun-rays-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    animation: rotate-rays 20s linear infinite;
-}
-
-@keyframes rotate-rays {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.ray {
-    position: absolute;
-    width: 6px;
-    height: 30px;
-    left: 50%;
-    top: 10px;
-    transform-origin: center 90px;
-    border-radius: 3px;
-    animation: ray-pulse 2s infinite ease-in-out;
-}
-
-.ray:nth-child(1) {
-    transform: translateX(-50%) rotate(0deg);
-    background: linear-gradient(to top, #ff9500, #ffeb3b);
-}
-
-.ray:nth-child(2) {
-    transform: translateX(-50%) rotate(30deg);
-    background: linear-gradient(to top, #ffeb3b, #4caf50);
-    animation-delay: 0.1s;
-}
-
-.ray:nth-child(3) {
-    transform: translateX(-50%) rotate(60deg);
-    background: linear-gradient(to top, #4caf50, #ff9500);
-    animation-delay: 0.2s;
-}
-
-.ray:nth-child(4) {
-    transform: translateX(-50%) rotate(90deg);
-    background: linear-gradient(to top, #ff9500, #ffeb3b);
-    animation-delay: 0.3s;
-}
-
-.ray:nth-child(5) {
-    transform: translateX(-50%) rotate(120deg);
-    background: linear-gradient(to top, #ffeb3b, #4caf50);
-    animation-delay: 0.4s;
-}
-
-.ray:nth-child(6) {
-    transform: translateX(-50%) rotate(150deg);
-    background: linear-gradient(to top, #4caf50, #ff9500);
-    animation-delay: 0.5s;
-}
-
-.ray:nth-child(7) {
-    transform: translateX(-50%) rotate(180deg);
-    background: linear-gradient(to top, #ff9500, #ffeb3b);
-    animation-delay: 0.6s;
-}
-
-.ray:nth-child(8) {
-    transform: translateX(-50%) rotate(210deg);
-    background: linear-gradient(to top, #ffeb3b, #4caf50);
-    animation-delay: 0.7s;
-}
-
-.ray:nth-child(9) {
-    transform: translateX(-50%) rotate(240deg);
-    background: linear-gradient(to top, #4caf50, #ff9500);
-    animation-delay: 0.8s;
-}
-
-.ray:nth-child(10) {
-    transform: translateX(-50%) rotate(270deg);
-    background: linear-gradient(to top, #ff9500, #ffeb3b);
-    animation-delay: 0.9s;
-}
-
-.ray:nth-child(11) {
-    transform: translateX(-50%) rotate(300deg);
-    background: linear-gradient(to top, #ffeb3b, #4caf50);
-    animation-delay: 1s;
-}
-
-.ray:nth-child(12) {
-    transform: translateX(-50%) rotate(330deg);
-    background: linear-gradient(to top, #4caf50, #ff9500);
-    animation-delay: 1.1s;
-}
-
-@keyframes ray-pulse {
-
-    0%,
-    100% {
-        height: 30px;
-        opacity: 1;
-    }
-
-    50% {
-        height: 40px;
-        opacity: 0.8;
-    }
-}
-
-/* Decorative Circles around Sun */
-.sun-circles {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    animation: rotate-circles 30s linear infinite reverse;
-}
-
-@keyframes rotate-circles {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-.circle {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    animation: circle-pulse 2s infinite ease-in-out;
-}
-
-.circle-1 {
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ff7b00;
-}
-
-.circle-2 {
-    top: 15%;
-    right: 15%;
-    background: #ffeb3b;
-    animation-delay: 0.25s;
-}
-
-.circle-3 {
-    right: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #4caf50;
-    animation-delay: 0.5s;
-}
-
-.circle-4 {
-    bottom: 15%;
-    right: 15%;
-    background: #ff7b00;
-    animation-delay: 0.75s;
-}
-
-.circle-5 {
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #ffeb3b;
-    animation-delay: 1s;
-}
-
-.circle-6 {
-    bottom: 15%;
-    left: 15%;
-    background: #4caf50;
-    animation-delay: 1.25s;
-}
-
-.circle-7 {
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    background: #ff7b00;
-    animation-delay: 1.5s;
-}
-
-.circle-8 {
-    top: 15%;
-    left: 15%;
-    background: #ffeb3b;
-    animation-delay: 1.75s;
-}
-
-@keyframes circle-pulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-
-    50% {
-        transform: scale(1.3);
-        opacity: 0.7;
-    }
-}
-
-/* Brand Name */
-.brand-name {
-    font-family: var(--font-display);
-    font-size: 4rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #ff7b00 0%, #ffeb3b 50%, #ff7b00 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-text 3s linear infinite;
-    margin-bottom: 5px;
-}
-
-@keyframes gradient-text {
-    0% {
-        background-position: 0% center;
-    }
-
-    100% {
-        background-position: 200% center;
-    }
-}
-
-.brand-tagline {
-    font-family: var(--font-display);
-    font-size: 1.2rem;
-    letter-spacing: 0.4em;
-    color: #888;
-    animation: fade-in 1s 0.5s backwards;
 }
 
 /* ========================================
