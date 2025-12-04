@@ -101,9 +101,10 @@ body {
 /* Animated Layered Logo */
 .animated-logo-container {
     position: relative;
-    width: 250px;
-    height: 250px;
-    margin: 0 auto 20px;
+    width: clamp(300px, 40vw, 500px);
+    /* Significantly larger to fit left side */
+    height: clamp(300px, 40vw, 500px);
+    margin: 0 auto 10px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -132,10 +133,11 @@ body {
 
 .layer-face {
     z-index: 3;
-    width: 70%;
-    height: 70%;
-    top: 30%;
-    left: 30%;
+    width: 35%;
+    /* Adjusted relative size */
+    height: 35%;
+    top: 32.5%;
+    left: 32.5%;
     animation: float-face 3s ease-in-out infinite;
     filter: drop-shadow(0 0 20px rgba(255, 123, 0, 0.3));
 }
@@ -191,32 +193,26 @@ body {
 /* Brand Name Restored */
 .brand-name {
     font-family: var(--font-display);
-    font-size: 4rem;
+    font-size: clamp(3rem, 5vw, 5rem);
+    /* Larger text */
     font-weight: 700;
-    background: linear-gradient(135deg, #ff7b00 0%, #ffeb3b 50%, #ff7b00 100%);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradient-text 3s linear infinite;
-    margin-bottom: 5px;
-}
-
-@keyframes gradient-text {
-    0% {
-        background-position: 0% center;
-    }
-
-    100% {
-        background-position: 200% center;
-    }
+    color: #ffffff;
+    /* White text to match reference */
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    margin-top: -20px;
+    /* Pull text closer to logo */
+    position: relative;
+    z-index: 10;
 }
 
 .brand-tagline {
     font-family: var(--font-display);
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 1.5vw, 1.5rem);
     letter-spacing: 0.4em;
-    color: #888;
+    color: #ffffff;
+    /* White text */
+    opacity: 0.9;
     animation: fade-in 1s 0.5s backwards;
 }
 

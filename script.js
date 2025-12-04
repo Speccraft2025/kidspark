@@ -94,3 +94,43 @@ style.textContent = `
 document.head.appendChild(style);
 
 console.log('🌟 KidSpark - Learning is Fun! 🌟');
+
+// Mouse Trail Animation
+document.addEventListener('mousemove', (e) => {
+    createTrailDot(e.clientX, e.clientY);
+});
+
+function createTrailDot(x, y) {
+    const dot = document.createElement('div');
+    dot.className = 'trail-dot';
+
+    const colors = ['#ff7b00', '#ffeb3b', '#4caf50', '#9c27b0', '#e91e63'];
+    const color = colors[Math.floor(Math.random() * colors.length)];
+
+    dot.style.cssText = `
+        position: fixed;
+        left: ${x}px;
+        top: ${y}px;
+        width: 10px;
+        height: 10px;
+        background: ${color};
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transform: translate(-50%, -50%);
+        animation: fade-trail 0.8s forwards;
+    `;
+
+    document.body.appendChild(dot);
+    setTimeout(() => dot.remove(), 800);
+}
+
+// Add trail animation style
+const trailStyle = document.createElement('style');
+trailStyle.textContent = `
+    @keyframes fade-trail {
+        0% { transform: translate(-50%, -50%) scale(1); opacity: 0.8; }
+        100% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+    }
+`;
+document.head.appendChild(trailStyle);
